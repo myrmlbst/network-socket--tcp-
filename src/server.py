@@ -14,11 +14,11 @@ server.listen(5) # 5 unaccepted connections are allowed before rejecting new one
 while True:
     communication_socket, address = server.accept()
     print(f"Connected to {address}")
-    message = communication_socket.recv(1024).decode('uft-8')
+    message = communication_socket.recv(1024).decode('utf-8')
     print(f"Client message: {message}")
 
     # inform the other client that their message was sent
-    communication_socket.send(f"Message recieved.".encode('uft-8'))
+    communication_socket.send(f"Message recieved.".encode('utf-8'))
 
     communication_socket.close()
     print(f"Connection with {address} has ended.")
